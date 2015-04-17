@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE config SYSTEM "config.dtd" [
+<!ENTITY Encoded-Credentials-Rally SYSTEM "Encoded-Credentials-Rally-1.xml">
+<!ENTITY Encoded-Credentials-JIRA  SYSTEM "Encoded-Credentials-Jira-1.xml">
+]>
+<config>
+    <RallyConnection>
+<!-- ========================================================
+        <Url>My-Rally-URL</Url>
+        <WorkspaceName>My-Rally-WS</WorkspaceName>
+        <Projects>
+            <Project>My-Rally-Proj</Project>
+        </Projects>
+        <User>rallyuser@company.com</User>
+        <Password>encoded-x-x-x-x-x-x-x-x-x-x-x-=-</Password>
+========================================================= -->
+        &Encoded-Credentials-Rally;
+<!-- ==================================================== -->
+        <ArtifactType>Story</ArtifactType>
+        <ExternalIDField>c_ExternalID</ExternalIDField>
+    </RallyConnection>
+
+    <JiraRestConnection>
+<!-- ========================================================
+        <Url>My-Jira-URL</Url>
+        <Project>My-Jira-Proj</Project>
+        <User>jirauser</User>
+        <Password>encoded-x-x-x-x-x-x-x-x-x-x-x-=-</Password>
+========================================================= -->
+        &Encoded-Credentials-JIRA;
+<!-- ==================================================== -->
+        <ArtifactType>Story</ArtifactType>
+        <ExternalIDField>RallyObjectID</ExternalIDField>
+    </JiraRestConnection>
+
+    <Connector> <FieldMapping> <!-- For Testing Only --> </FieldMapping> </Connector>
+
+    <ConnectorRunner>
+        <Preview>true</Preview>
+        <LogLevel>Debug</LogLevel>
+        <Services>COPY_JIRA_TO_RALLY</Services>
+    </ConnectorRunner>
+</config>
